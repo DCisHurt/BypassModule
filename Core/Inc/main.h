@@ -60,12 +60,12 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define LED_Pin GPIO_PIN_7
 #define LED_GPIO_Port GPIOB
-#define MUTE_Pin GPIO_PIN_15
-#define MUTE_GPIO_Port GPIOC
+#define RLY_Pin GPIO_PIN_15
+#define RLY_GPIO_Port GPIOC
 #define REMOTE_Pin GPIO_PIN_2
 #define REMOTE_GPIO_Port GPIOA
-#define RLY_Pin GPIO_PIN_3
-#define RLY_GPIO_Port GPIOA
+#define MUTE_Pin GPIO_PIN_3
+#define MUTE_GPIO_Port GPIOA
 #define DET_Pin GPIO_PIN_4
 #define DET_GPIO_Port GPIOA
 #define SW_Pin GPIO_PIN_11

@@ -1,1 +1,1 @@
-ST-LINK_gdbserver.exe -cp "C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer\bin" --swd -el "build\BypassModule.elf"
+ST-LINK_gdbserver.exe -cp "C:\Program Files (x86)\STMicroelectronics\STM32Cube\STM32CubeProgrammer\bin" --swd -el "build\BypassModule.elf"
