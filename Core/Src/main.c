@@ -136,51 +136,50 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
-    if(afterTrigger){
-      if(HAL_GPIO_ReadPin(SW_GPIO_Port, SW_Pin)){
-        if(state && (clock_ms - contF) > 1000 && (clock_ms - contR) > detime){
-          togggle(0);
-          state = 0;
-
-          contF = 0;
-          contR = 0;
-
-          afterTrigger = 0;
-        }
-        else if((clock_ms - contF) > 200 && (clock_ms - contR) > detime){
-          contF = 0;
-          contR = 0;
-
-          afterTrigger = 0;
-        }
+    if(HAL_GPIO_ReadPin(DET_GPIO_Port, DET_Pin) == 0){
+      if((state == 1) && (HAL_GPIO_ReadPin(REMOTE_GPIO_Port, REMOTE_Pin))){
+        togggle(0);
+        state = 0;
+      }
+      else if((state == 0) && (HAL_GPIO_ReadPin(REMOTE_GPIO_Port, REMOTE_Pin)) == 0){
+        togggle(1);
+        state = 1;
       }
     }
     else{
-      if((clock_ms - contF) > detime && (HAL_GPIO_ReadPin(SW_GPIO_Port, SW_Pin) == 0)){
-        if(state){
-          state = 0;
-          
+      if(afterTrigger){
+        if(HAL_GPIO_ReadPin(SW_GPIO_Port, SW_Pin)){
+          if(state && (clock_ms - contF) > 1000 && (clock_ms - contR) > detime){
+            togggle(0);
+            state = 0;
+
+            contF = 0;
+            contR = 0;
+
+            afterTrigger = 0;
+          }
+          else if((clock_ms - contF) > 200 && (clock_ms - contR) > detime){
+            contF = 0;
+            contR = 0;
+
+            afterTrigger = 0;
+          }
         }
-        else{
-          state = 1;
+      }
+      else{
+        if((clock_ms - contF) > detime && (HAL_GPIO_ReadPin(SW_GPIO_Port, SW_Pin) == 0)){
+          if(state){
+            state = 0;
+            
+          }
+          else{
+            state = 1;
+          }
+          togggle(state);
+          afterTrigger = 1;
         }
-        togggle(state);
-        afterTrigger=1;
       }
     }
-
-    // if(HAL_GPIO_ReadPin(DET_GPIO_Port, DET_Pin) == 0){
-    //   if(state != HAL_GPIO_ReadPin(REMOTE_GPIO_Port, REMOTE_Pin)){
-    //     if(state){
-    //       togggle(0);
-    //     }
-    //     else{
-    //       togggle(1);
-    //     }
-    //   }
-    //   state = HAL_GPIO_ReadPin(REMOTE_GPIO_Port, REMOTE_Pin);
-    // }
   }
   /* USER CODE END 3 */
 }
