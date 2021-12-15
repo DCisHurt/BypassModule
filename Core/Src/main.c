@@ -137,15 +137,16 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    if(HAL_GPIO_ReadPin(DET_GPIO_Port, DET_Pin) == 0){
-      if((state == 1) && (HAL_GPIO_ReadPin(REMOTE_GPIO_Port, REMOTE_Pin))){
+    if(HAL_GPIO_ReadPin(DET_GPIO_Port, DET_Pin)==1){
+      if((state == 1) && (HAL_GPIO_ReadPin(REMOTE_GPIO_Port, REMOTE_Pin)) == 0){
         togggle(0);
         state = 0;
       }
-      else if((state == 0) && (HAL_GPIO_ReadPin(REMOTE_GPIO_Port, REMOTE_Pin)) == 0){
+      else if((state == 0) && (HAL_GPIO_ReadPin(REMOTE_GPIO_Port, REMOTE_Pin))){
         togggle(1);
         state = 1;
       }
+      HAL_Delay(20);
     }
     else{
       if(afterTrigger){
