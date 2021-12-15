@@ -34,7 +34,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define detime 15
+#define detime 25
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -67,9 +67,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 
 void togggle(uint8_t dir){
   HAL_GPIO_WritePin(MUTE_GPIO_Port, MUTE_Pin, GPIO_PIN_SET);
+  HAL_Delay(1);
   HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, dir);
   HAL_GPIO_WritePin(RLY_GPIO_Port, RLY_Pin, dir);
-  HAL_Delay(10);
+  HAL_Delay(5);
   HAL_GPIO_WritePin(MUTE_GPIO_Port, MUTE_Pin, GPIO_PIN_RESET);
 }
 
