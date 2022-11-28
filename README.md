@@ -1,5 +1,6 @@
 # Effect Pedal Bypass Module
-Firmware for Bypass Module.
+This is the firmware for the effect pedal bypass module.<br>
+All development is done in ST official tools.
 
 # Requirement
 GNU-make<br>
@@ -142,3 +143,8 @@ press 'Ctrl+Shift+B' to engage build & upload
 ### Step 4: Debug
 
 press F5 to start debug mode
+
+
+
+# License
+MIT
