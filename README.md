@@ -1,6 +1,6 @@
 # Effect Pedal Bypass Module
 This is the firmware for the effect pedal bypass module.<br>
-All development is done in ST official tools.
+The whole project was done using official ST tools.
 
 # Requirement
 GNU-make<br>
@@ -11,6 +11,7 @@ arm-none-eabi-gcc<br>
 vscode extension 'Cortex-Debug'<br>
 
 ## Getting Started
+* [Schematic](Schematic/Bypass_Module.pdf)</br>
 
 ### Step 1: Vscode Setting
 
@@ -143,8 +144,6 @@ press 'Ctrl+Shift+B' to engage build & upload
 ### Step 4: Debug
 
 press F5 to start debug mode
-
-
 
 # License
 MIT
